@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>local storage</h1>
+    <label for="key">Key :</label>
+    <input type="text" id="key"><br>
+    <label for="value">Value</label>
+    <input type="text" id="value"><br>
+    <button id="add">Add item</button>
+    <span id="info"></span><br>
+
+    <a href="page2.html">
+        <button>Go to next page</button>
+    </a>
+
+    <script>
+        const key = document.getElementById('key');
+        const value = document.getElementById('value');
+        const info = document.getElementById('info');
+
+
+
+        document.querySelector('#add').addEventListener('click', () => {
+            if (key.value && value.value) {
+                localStorage.setItem(key.value, value.value);
+                info.textContent = "Item added!";
+            } else {
+                info.textContent = "please enter both key and value";
+            }
+            //localStorage.setItem("data", [key.value, value.value]);
+            //document.getElementById('info').append("Item added!")
+        });
+        document.querySelector('#go')
+
+    </script>
+
+    <!-- 
+        <script>
+        // test local storage
+
+        // Working with localStorage;
+        localStorage.setItem('accept-cookies', 'true');
+
+        localStorage.setItem('data', JSON.stringify({ prop: 1 }));
+        localStorage.setItem('score', 5);
+        localStorage.setItem('nickname', 'Harry');
+        //localStorage.setItem('nickname', 'Steve');
+
+        //console.log(localStorage.getItem('nickname'));
+        //console.log(JSON.parse(localStorage.getItem('data')));
+        console.log({ ...localStorage });
+        // console.log(Object.values(localStorage));
+        // console.log(Object.keys(localStorage));
+        // console.log(Object.entries(localStorage));
+
+        // if (localStorage.getItem('nickname') === null) {
+        //     localStorage.setItem('nickname', 'Steve');
+        // }
+        // delete data from local storage
+        localStorage.removeItem('data')
+
+        // to delete all localStorage 
+        localStorage.clear()
+
+        </script> -->
+
+</body>
+
+</html>

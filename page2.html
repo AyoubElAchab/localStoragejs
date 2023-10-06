@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>page2</h1>
+
+    <a href="index.html">
+        <button>Return</button>
+    </a>
+    <div id="output"></div>
+    <script>
+        const output = document.getElementById('output');
+        const data = JSON.parse(localStorage.getItem('data'));
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const key = urlParams.get('key');
+
+        if (data) {
+            
+            output.innerHTML = `Key: ${key}, Value: ${value}`;
+        } else {
+            output.textContent = "no data found in localStorage";
+        }
+        if (key) {
+            
+            const value = localStorage.getItem(key);
+            if (value) {
+                output.innerHTML = `Key: ${key}, Value: ${value}`;
+            } else {
+                output.textContent = "No value found in localStorage for the provided key.";
+            }
+        } else {
+            output.textContent = "No key parameter found in the URL.";
+        }
+
+        //document.getElementById('output').innerHTML = JSON.stringify(localStorage, null, 4);
+        //document.getElementById('output').innerHTML = JSON.parse(localStorage.getItem('data'))
+    </script>
+</body>
+
+</html>
